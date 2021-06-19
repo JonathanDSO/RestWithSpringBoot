@@ -1,0 +1,136 @@
+swagger: "2.0"
+info:
+  description: "Clientes Service CRUD"
+  version: "1.0.0"
+  title: "Clientes Service"
+  contact:
+    email: "jonathanso@outlook.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+tags:
+  - name: "Customers"
+paths:
+  /customers:
+    get:
+      tags:
+        - "Customers"
+      summary: "List all customers."
+      operationId: "findAll"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "page"
+          description: "Result Page Number"
+        - in: "query"
+          name: "size"
+          description: "Result Page Size"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Failed to process"
+    post:
+      tags:
+        - "Customers"
+      summary: "Insert new records in the database"
+      operationId: "insert"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Persistence object in the database"
+          required: true
+          schema:
+            $ref: "#/definitions/CustomerRequestVO"
+      responses:
+        "201":
+          description: "Successful operation"
+        "400":
+          description: "Failed to process"
+  /customers/{id}:
+    put:
+      tags:
+        - "Customers"
+      summary: "Update new records in the database"
+      operationId: "update"
+      consumes:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "id"
+          description: "Customer ID"
+          required: true
+        - in: "body"
+          name: "body"
+          description: "Persistence object in the database"
+          required: true
+          schema:
+            $ref: "#/definitions/CustomerRequestVO"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Failed to process"
+        "404":
+          description: "Entity not found"
+    get:
+      tags:
+        - "Customers"
+      summary: "Search customer by ID."
+      operationId: "findById"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "id"
+          type: integer
+          description: "Customer ID"
+          required: true
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Failed to process"
+definitions:
+   CustomerRequestVO:
+    type: object
+    description: >-
+      This schema represents the information to be provided to register a customer.
+    properties:
+      name:
+        description: Customer name.
+        type: string
+      cpf:
+        description: Customer CPF.
+        type: string
+        pattern: '/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/'
+      birthDate:
+        description: Customer's date of birth.
+        type: string
+        format: date
+   CustomerResponseVO:
+    type: object
+    description: >-
+      This schema represents the information to be provided to register a customer.
+    properties:
+      id:
+        description: Customer ID.
+        type: integer
+      name:
+        description: Customer name.
+        type: string
+      cpf:
+        description: Customer CPF.
+        type: string
+      birthDate:
+        description: Customer's date of birth.
+        type: string
+        format: date
+      age:
+        description: Customer age.
+        type: integer

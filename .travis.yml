@@ -9,7 +9,7 @@ deploy:
   script:
     docker push jonathandso/customer-crud
   on:
-    branch: master
+    branch: main
 notifications:
   email: false
     

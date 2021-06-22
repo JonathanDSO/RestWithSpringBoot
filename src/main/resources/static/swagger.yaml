@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "Clientes Service CRUD"
+  description: "Customer CRUD"
   version: "1.0.0"
   title: "Clientes Service"
   contact:

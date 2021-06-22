@@ -27,6 +27,7 @@ public class CustomerService {
 	}
 
 	public List<Customer> findAll(Pageable pageable) {
+		Assert.notNull(pageable, "pageable cannot be null.");
 		return this.customerRepository.findAll(pageable).getContent();
 	}
 

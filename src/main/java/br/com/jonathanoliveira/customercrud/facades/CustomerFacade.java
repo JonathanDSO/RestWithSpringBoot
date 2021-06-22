@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class CustomerFacade {
-	private final CustomerService clienteService;
+	private final CustomerService customerService;
 
 	private static final String CUSTOMERVO_CANNOT_BE_NULL = "clienteVO cannot be null";
 	private static final String ID_CANNOT_BE_NULL = "clienteVO cannot be null";
@@ -24,29 +24,29 @@ public class CustomerFacade {
 	public CustomerResponseVO insert(CustomerRequestVO clienteVO) {
 		Assert.notNull(clienteVO, CUSTOMERVO_CANNOT_BE_NULL);
 		Customer cliente = DozerConverter.parseObject(clienteVO, Customer.class);
-		Customer clienteSaved = clienteService.save(cliente);
+		Customer clienteSaved = customerService.save(cliente);
 		return DozerConverter.parseObject(clienteSaved, CustomerResponseVO.class);
 	}
 
 	public CustomerResponseVO update(Integer id, CustomerRequestVO clienteVO) {
 		Assert.notNull(id, ID_CANNOT_BE_NULL);
 		Assert.notNull(clienteVO, CUSTOMERVO_CANNOT_BE_NULL);
-		clienteService.findById(id);
+		customerService.findById(id);
 		Customer cliente = DozerConverter.parseObject(clienteVO, Customer.class);
 		cliente.setId(id);
-		return DozerConverter.parseObject(clienteService.save(cliente), CustomerResponseVO.class);
+		return DozerConverter.parseObject(customerService.save(cliente), CustomerResponseVO.class);
 	}
 
 	public List<CustomerResponseVO> findAll(Pageable pageable) {
-		return DozerConverter.parseListObject(clienteService.findAll(pageable), CustomerResponseVO.class);
+		return DozerConverter.parseListObject(customerService.findAll(pageable), CustomerResponseVO.class);
 	}
 	public List<CustomerResponseVO> findAll() {
-		return DozerConverter.parseListObject(clienteService.findAll(), CustomerResponseVO.class);
+		return DozerConverter.parseListObject(customerService.findAll(), CustomerResponseVO.class);
 	}
 
 	public CustomerResponseVO findById(Integer id) {
 		Assert.notNull(id, ID_CANNOT_BE_NULL);
-		return DozerConverter.parseObject(clienteService.findById(id), CustomerResponseVO.class);
+		return DozerConverter.parseObject(customerService.findById(id), CustomerResponseVO.class);
 	}
 
 }

@@ -6,11 +6,9 @@ import java.util.GregorianCalendar;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class CustomerResponseVO {
 
 	private Integer id;
@@ -18,6 +16,7 @@ public class CustomerResponseVO {
 	private String cpf;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date birthDate;
+	private Integer age;
 
 	public Integer getAge() {
 		GregorianCalendar today = new GregorianCalendar();
@@ -25,7 +24,8 @@ public class CustomerResponseVO {
 		if (birthDate != null) {
 			birth.setTime(birthDate);
 		}
-		return today.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+		age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+		return age;
 	}
 
 }

@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  description: "Customer CRUD"
+  description: "Example of a REST API with full CRUD customers."
   version: "1.0.0"
-  title: "Clientes Service"
+  title: "Customer Service CRUD"
   contact:
     email: "jonathanso@outlook.com"
   license:

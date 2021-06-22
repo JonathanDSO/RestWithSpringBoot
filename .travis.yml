@@ -32,6 +32,7 @@ after_success:
   - pip3 install awscli --upgrade --username
   - export PATH=$PATH:$HOME/.local/bin
   - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $IMAGE_REPO_URL
+  - docker build -t customer-crud .
   - docker tag customer-crud:latest $IMAGE_REPO_URL/customer-crud:$TRAVIS_JOB_ID;
   - docker push $IMAGE_REPO_URL/customer-crud:$TRAVIS_JOB_ID;
    add-apt-repository ppa:eugenesan/ppa

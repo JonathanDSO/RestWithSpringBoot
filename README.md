@@ -2,6 +2,9 @@
 
 Desenvolvimento de uma API REST com Java e Spring Boot
 
+Para outros detalhes desta aplicação, acessar a Wiki deste projeto:
+https://github.com/JonathanDSO/customer-crud/wiki
+
 
 ## Como executar
 

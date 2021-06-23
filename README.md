@@ -41,7 +41,7 @@ Depois que o aplicativo for executado, você deve ver algo assim
 ```
 
 Para visualizar os documentos da API Swagger 2
-Execute o servidor e navegue até localhost:8080/swagger-ui.html
+Execute o servidor e navegue até http://localhost:8080/swagger-ui.html
 
 ## Sobre o serviço
 

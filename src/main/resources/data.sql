@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS cliente;
+DROP TABLE IF EXISTS customer;
 
-create table cliente
+create table customer
 (
    id SERIAL PRIMARY KEY,
    name varchar (255),

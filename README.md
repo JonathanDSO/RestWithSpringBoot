@@ -56,7 +56,7 @@ Aqui está o que este pequeno aplicativo demonstra:
 -   Integração do _Spring Data_ com JPA / Hibernate.
 -   Funcionalidade CRUD automática em relação à fonte de dados usando o padrão Spring _Repository_
 -   Demonstra a estrutura de teste MockMVC com bibliotecas associadas
--   Todas as APIs estão documentadas pelo Swagger2 usando pelo arquivo swagger.yaml
+-   Todas as APIs estão documentadas pelo Swagger2 pelo arquivo swagger.yaml
 
 ### Crie um cliente
 

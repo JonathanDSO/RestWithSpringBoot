@@ -9,25 +9,28 @@ https://github.com/JonathanDSO/customer-crud/wiki
 ## Como executar
 
 - Clone este repositório
-- Executar por docker ou por jar.
+- Certifique-se de usar JDK 11 e Maven 3.x
+- Você pode construir o projeto e executar os testes executando 
+```
+mvn clean package 
+```
+- Depois de construído com sucesso, você pode executar o serviço por um destes métodos:
 
 ### Via docker
-
 Ter instalado o docker.
 Construir e subir a imagem docker, através do comando:
-`docker-compose up -d --build`
-
-### Via jar
-Você o executa usando o comando `java -jar`.
-
-- Certifique-se de usar JDK 11 e Maven 3.x
-- Você pode construir o projeto e executar os testes executando `mvn clean package`
-- Depois de construído com sucesso, você pode executar o serviço por um destes dois métodos:
-
 ```
-         java -jar customer-crud-0.0.1-SNAPSHOT.jar
-ou
-         mvn spring-boot:run
+docker-compose up -d --build
+```
+### Via "mvn spring-boot:run"
+- Executar o comando:
+```
+mvn spring-boot:run
+```
+### Via "java -jar" 
+- Acessar a pasta target, onde foi gerado o .jar, e executar o comando:
+```
+java -jar customer-crud-0.0.1-SNAPSHOT.jar
 ```
 
 Depois que o aplicativo for executado, você deve ver algo assim
